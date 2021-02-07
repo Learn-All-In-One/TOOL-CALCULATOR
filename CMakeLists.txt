@@ -1,4 +1,16 @@
-cmake_minimum_required(VERSION 3.10)  # 指定最小的cmake版本为3.10
-project(Calculator)  # 指定工程名称为Calculator
-add_subdirectory(${PROJECT_SOURCE_DIR}/src)  # 添加源文件目录
-add_subdirectory(${PROJECT_SOURCE_DIR}/include)  # 添加库目录
+cmake_minimum_required(VERSION 3.10)
+project(Calculator)
+
+
+set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_LANGUAGE_COMPILER "g++")
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+
+include_directories(${PROJECT_SOURCE_DIR}/core ${PROJECT_SOURCE_DIR}/control)
+link_directories(${PROJECT_SOURCE_DIR}/bin)
+
+
+add_subdirectory(${PROJECT_SOURCE_DIR}/main)
+add_subdirectory(${PROJECT_SOURCE_DIR}/core)
+add_subdirectory(${PROJECT_SOURCE_DIR}/control)
